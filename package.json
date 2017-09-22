@@ -1,0 +1,29 @@
+{
+  "name": "blogs",
+  "version": "1.0.0",
+  "description": "Custom blogs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://sachinkalsi@bitbucket.org/team_blog/blog_front.git"
+  },
+  "keywords": [
+    "blogs",
+    "custom"
+  ],
+  "author": "Sachin Kalsi",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/team_blog/blog_front#readme",
+  "devDependencies": {
+    "eslint": "^4.7.2",
+    "eslint-plugin-react": "^7.3.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "express": "^4.15.4",
+    "winston": "^2.3.1"
+  }
+}
