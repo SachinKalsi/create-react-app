@@ -4,26 +4,20 @@ This README would normally document whatever steps are necessary to get your app
 
 ### What is this repository for? ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* User Login, Create category & Blogs, send request to admin for approval (1.0.0)
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+* set up env file
+* npm install
+* npm start
 
 ### Contribution guidelines ###
 
-* Writing tests
-* Code review
-* Other guidelines
+* checkout new branch from master: example => `git checkout -b your_branch_name`
+* commit your code & request a pull
+* admin will review the code & takes the action accordingly
 
 ### Who do I talk to? ###
 
-* Repo owner or admin
-* Other community or team contact
+* sachinkalsi15@gmail.com
