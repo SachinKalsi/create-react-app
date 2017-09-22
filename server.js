@@ -1,9 +1,10 @@
 'use strict';
 require('./config/read_env');
+process.env.PORT = process.env.PORT || 3000;
 const express = require('express');
 const app = express();
 const logger = require('./config/logger');
-const routes = require('./app/routes');
+const routes = require('./server/routes');
 
 // const Promise = require('bluebird');
 const bodyParser = require('body-parser');
@@ -22,4 +23,4 @@ app.use(function(req, res, next){
 });
 app.use('/', routes);
 
-app.listen(process.env.PORT, () => logger.info(`server started at the port ${process.env.PORT}`));
+app.listen(process.env.PORT, () => logger.info(`server is running at the port ${process.env.PORT}`));
