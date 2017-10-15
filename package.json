@@ -24,6 +24,7 @@
   "dependencies": {
     "body-parser": "^1.18.1",
     "express": "^4.15.4",
+    "express-handlebars": "^3.0.0",
     "winston": "^2.3.1"
   }
 }
