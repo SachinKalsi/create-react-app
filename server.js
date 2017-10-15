@@ -11,6 +11,8 @@ const path = require('path');
 // const Promise = require('bluebird');
 const bodyParser = require('body-parser');
 
+app.use(express.static('./public'));
+
 
 // parse body params and attache them to req.body
 app.use(bodyParser.json());

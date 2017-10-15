@@ -7,7 +7,6 @@ router.get('/', function(req, res){
         showTitle: true,
         homepage: 'this is custom home page of base project.'
     };
-    // res.sendFile(path.resolve(__dirname + '/../../public/'));
     res.render('home', body);
 });
 
