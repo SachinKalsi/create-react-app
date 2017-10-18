@@ -10,7 +10,7 @@ router.get('/', function(req, res){
     res.render('home', body);
 });
 
-router.get('/admin', function(req, res){
+router.use('/admin', function(req, res){
     res.render('index');
 });
 

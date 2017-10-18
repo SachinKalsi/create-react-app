@@ -1,8 +1,13 @@
 const ROOT_PATH = '/admin';
-const React = require('react');
-const ReactDOM = require('react-dom');
-const {Router, Route, IndexRoute} = require('react-router');
+var React = require('react');
+var ReactDOM = require('react-dom');
+var ReactRouter = require('react-router');
 
+var Router = ReactRouter.Router;
+var Route = ReactRouter.Route;
+var Redirect = ReactRouter.Redirect;
+var IndexRoute = ReactRouter.IndexRoute;
+// const {Router, Route, IndexRoute} = require('react-router');
 
 const Test = require('./pages/test.jsx');
 const Main = require('./pages/main.jsx');
@@ -15,28 +20,28 @@ const App = React.createClass({
         history: React.PropTypes.object.isRequired
     },
     onClick: function() {
-        this.props.history.push('test');
+        this.props.history.push('/test');
     },
     render: function() {
         // Don't render children until we get user
         return (
             <div>
-                <div className='main-content'>
-                    This is App page
+                <div>
+                    Header
                     {this.props.children}
+                    Footer
                 </div>
-                <button onClick={this.onClick}> Click here</button>
             </div>
         );
     }
 });
 
-const router = (
-    <Router history={history}>
-        <Route path='/' component={App}>
-            <IndexRoute component={Main}/>
-            <Route path='/test' data='this data is passed through props' component={Test}/>
-        </Route>
-    </Router>
-);
-ReactDOM.render(router, document.getElementById('container'));
+var Routes = (
+<Router history={history}>
+    <Route path='/' component={App}>
+        <IndexRoute component={Main} />
+        <Route path='/test'    data='this is test'         components={Test}        />
+    </Route>
+</Router>);
+
+  ReactDOM.render(Routes, document.querySelector('.container'));
