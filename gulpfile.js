@@ -53,7 +53,6 @@ function browserifyThis(config) {
             .bundle()
             .on('error', function(e) {
                 console.log(e.message);
-                process.exit(0);
             })
             .pipe(source(outputName))
             .pipe(gulp.dest(dest));

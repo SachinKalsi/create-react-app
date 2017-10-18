@@ -18,7 +18,7 @@ module.exports = createReactClass({
         return (
             <div className="panel panel-default">
                 <h1>{data}</h1>
-                <button onClick={this.onClick}> Click here to go back to main page</button>
+                <button onClick={this.onClick}> Click here to go to main page</button>
             </div>
         );
     }

@@ -40,7 +40,6 @@ const App = createClass({
                 data = 'This data has been passed from props'
                 />
         );
-
     };
 
   const Routes = (

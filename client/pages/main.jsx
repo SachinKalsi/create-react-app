@@ -14,11 +14,10 @@ module.exports = createReactClass({
         this.context.router.history.push('test');
     },
     render: function() {
-        console.log(this.context.router.history.location);
         return (
             <div className="panel panel-default">
-                Index page
-                <button onClick={this.onClick}> Click here to go back to test page</button>
+                <h1>This is main page</h1>
+                <button onClick={this.onClick}> Click here to go to test page</button>
             </div>
         );
     }
