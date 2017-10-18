@@ -7,11 +7,18 @@ module.exports = createReactClass({
     propTypes: {
         history: PropTypes.object.isRequired
     },
+    contextTypes: {
+        router: PropTypes.object
+    },
+    onClick: function() {
+        this.context.router.history.push('test');
+    },
     render: function() {
+        console.log(this.context.router.history.location);
         return (
             <div className="panel panel-default">
                 Index page
-                <p>Click here to go to other pages</p>
+                <button onClick={this.onClick}> Click here to go back to test page</button>
             </div>
         );
     }

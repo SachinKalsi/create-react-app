@@ -8,38 +8,47 @@ const Test = require('./pages/test.jsx');
 const Main = require('./pages/main.jsx');
 
 var history = require('./util/history')(ROOT_PATH);
+
 const App = createClass({
     displayName: 'App',
     propTypes: {
-        children: PropTypes.node,
         history: PropTypes.object.isRequired
     },
+    contextTypes: {
+        router: PropTypes.object
+    },
     onClick: function() {
-        this.props.history.push('/main');
+        this.props.history.push('test');
     },
     render: function() {
         // Don't render children until we get user
         return (
             <div>
                 <div className='main-content'>
-                    This is App page
-                    {this.props.children}
+                    <p>Header</p>
+                    <button onClick={this.onClick}> Click here to go to test page</button>
+                    <p>Footer</p>
                 </div>
-                <button onClick={this.onClick}> Click here</button>
-                <Link to='/test'>Bro</Link>
+
             </div>
         );
-    }
-});
+    }});
+
+    const TestComponent = function(props) {
+        return (
+            <Test
+                data = 'This data has been passed from props'
+                />
+        );
+
+    };
 
   const Routes = (
       <BrowserRouter>
           <div>
-              <Route exact path='/admin' component={App}/>
-              <Switch>
-                  <Route exact path='/test' data='test from new routers' history={history} component={Test}/>
-                  <Route exact path='/main' component={Main}/>
-             </Switch>
+              <Route exact path={ROOT_PATH} component={App}/>
+                  <Route exact path={ROOT_PATH + '/test'} component={TestComponent}/>
+                  <Route exact path={ROOT_PATH + '/main'} component={Main}/>
           </div>
       </BrowserRouter>
   );

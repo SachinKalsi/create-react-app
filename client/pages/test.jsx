@@ -5,15 +5,20 @@ const PropTypes = require('prop-types');
 module.exports = createReactClass({
     displayName: 'Test',
     propTypes: {
-        history: PropTypes.object.isRequired,
         data: PropTypes.string
+    },
+    contextTypes: {
+        router: PropTypes.object
+    },
+    onClick: function() {
+        this.context.router.history.push('main');
     },
     render: function() {
         const data = this.props.data;
         return (
             <div className="panel panel-default">
-                React test.jsx DATA.
-                <p>{data}</p>
+                <h1>{data}</h1>
+                <button onClick={this.onClick}> Click here to go back to main page</button>
             </div>
         );
     }
