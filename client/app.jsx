@@ -1,47 +1,48 @@
 const ROOT_PATH = '/admin';
-var React = require('react');
-var ReactDOM = require('react-dom');
-var ReactRouter = require('react-router');
-
-var Router = ReactRouter.Router;
-var Route = ReactRouter.Route;
-var Redirect = ReactRouter.Redirect;
-var IndexRoute = ReactRouter.IndexRoute;
-// const {Router, Route, IndexRoute} = require('react-router');
-
+const React = require('react');
+const ReactDOM = require('react-dom');
+const { BrowserRouter, Route, Switch, Link } = require('react-router-dom');
+const createClass = require('create-react-class');
+const PropTypes = require('prop-types');
 const Test = require('./pages/test.jsx');
 const Main = require('./pages/main.jsx');
 
 var history = require('./util/history')(ROOT_PATH);
-const App = React.createClass({
+const App = createClass({
     displayName: 'App',
     propTypes: {
-        children: React.PropTypes.node,
-        history: React.PropTypes.object.isRequired
+        children: PropTypes.node,
+        history: PropTypes.object.isRequired
     },
     onClick: function() {
-        this.props.history.push('/test');
+        this.props.history.push('/main');
     },
     render: function() {
         // Don't render children until we get user
         return (
             <div>
-                <div>
-                    Header
+                <div className='main-content'>
+                    This is App page
                     {this.props.children}
-                    Footer
                 </div>
+                <button onClick={this.onClick}> Click here</button>
+                <Link to='/test'>Bro</Link>
             </div>
         );
     }
 });
 
-var Routes = (
-<Router history={history}>
-    <Route path='/' component={App}>
-        <IndexRoute component={Main} />
-        <Route path='/test'    data='this is test'         components={Test}        />
-    </Route>
-</Router>);
+  const Routes = (
+      <BrowserRouter>
+          <div>
+              <Route exact path='/admin' component={App}/>
+              <Switch>
+                  <Route exact path='/test' data='test from new routers' history={history} component={Test}/>
+                  <Route exact path='/main' component={Main}/>
+             </Switch>
+          </div>
+      </BrowserRouter>
+  );
 
-  ReactDOM.render(Routes, document.querySelector('.container'));
+
+ReactDOM.render(Routes, document.getElementById('container'));

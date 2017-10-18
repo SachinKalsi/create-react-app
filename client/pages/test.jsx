@@ -1,10 +1,12 @@
 const React = require('react');
+const createReactClass = require('create-react-class');
+const PropTypes = require('prop-types');
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'Test',
     propTypes: {
-        history: React.PropTypes.object.isRequired,
-        data: React.PropTypes.string
+        history: PropTypes.object.isRequired,
+        data: PropTypes.string
     },
     render: function() {
         const data = this.props.data;

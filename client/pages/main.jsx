@@ -1,15 +1,17 @@
 const React = require('react');
-var Link = require('react-router').Link;
+const createReactClass = require('create-react-class');
+const PropTypes = require('prop-types');
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     displayName: 'Main',
     propTypes: {
-        history: React.PropTypes.object.isRequired
+        history: PropTypes.object.isRequired
     },
     render: function() {
         return (
             <div className="panel panel-default">
-                content page <Link to='test'> click here</Link>
+                Index page
+                <p>Click here to go to other pages</p>
             </div>
         );
     }

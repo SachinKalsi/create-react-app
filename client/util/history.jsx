@@ -1,15 +1,7 @@
-var createBrowserHistory = require('history/lib/createBrowserHistory');
-var useScroll = require('scroll-behavior/lib/useStandardScroll');
-var useBasename = require('history/lib/useBasename');
-
+var {createBrowserHistory}  = require('history');
 module.exports = function(basename) {
-    var history = useScroll(createBrowserHistory);
-
-    if (basename) {
-        history = useBasename(history)({basename: basename});
-    } else {
-        history = history();
-    }
-
+    var history = createBrowserHistory({
+        basename: basename
+    });
     return history;
 };
